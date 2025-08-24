@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcome } from './nx-welcome';
 
 @Component({
-  imports: [NxWelcome, RouterModule],
+  imports: [RouterModule],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   protected title = 'optics';
+  
+// npx nx g @nx/angular:component --help
+// npx nx g @nx/angular:module --help
+// npx nx g @nx/angular:component apps/optics/src/app/login/login
+// npx nx g @nx/angular:module auth --project=optics --routing
+
+
+
+
 }
