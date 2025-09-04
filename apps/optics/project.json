@@ -19,7 +19,8 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/optics/public"
+            "input": "apps/optics/public",
+            "output": "public"
           }
         ],
         "styles": ["apps/optics/src/styles.scss"]
@@ -49,10 +50,9 @@
           "namedChunks": true
         }
       },
-      "defaultConfiguration": "production"
+      "defaultConfiguration": "development"
     },
     "serve": {
-      "continuous": true,
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
@@ -71,22 +71,18 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint"
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["apps/optics/**/*.ts", "apps/optics/**/*.html"]
+      }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": ["{workspaceRoot}/coverage/apps/optics"],
       "options": {
         "jestConfig": "apps/optics/jest.config.ts",
-        "tsConfig": "apps/optics/tsconfig.spec.json"
-      }
-    },
-    "serve-static": {
-      "continuous": true,
-      "executor": "@nx/web:file-server",
-      "options": {
-        "buildTarget": "optics:build",
-        "spa": true
+        "tsConfig": "apps/optics/tsconfig.spec.json",
+        "passWithNoTests": true
       }
     }
   }

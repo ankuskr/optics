@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  imports: [RouterModule],
+  imports: [RouterModule, ],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -14,6 +14,7 @@ export class App {
 // npx nx g @nx/angular:module --help
 // npx nx g @nx/angular:component apps/optics/src/app/login/login
 // npx nx g @nx/angular:module auth --project=optics --routing
+// npx nx g @nx/angular:setup-tailwind optics 
 
 
 

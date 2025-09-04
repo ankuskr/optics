@@ -11,3 +11,7 @@ export class AppController {
     return this.appService.getData();
   }
 }
+
+
+
+// npx nx g @nrwl/nest:library --name=opticsdb --directory=libs --linter=none --unit-test-runner=none
