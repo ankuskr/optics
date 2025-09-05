@@ -2,14 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Login } from './login/login';
 import { AuthRoutingModule } from './auth-routing-module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    Login
-  ]
+    ReactiveFormsModule,
+    RouterModule,
+    Login,
+    ToastrModule.forRoot(),
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}
