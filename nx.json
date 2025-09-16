@@ -29,6 +29,9 @@
       "options": {
         "passWithNoTests": true
       }
+    },
+    "server": {
+      "cache": true
     }
   },
   "generators": {
