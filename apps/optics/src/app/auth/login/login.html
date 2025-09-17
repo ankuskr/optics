@@ -1,1 +1,91 @@
-<h1 class="text-3xl font-bold text-blue-600">Hello Tailwind + Angular + Nx 🚀</h1>
+<div
+    class="grid h-full place-items-center w-screen flex-col justify-center bg-[#0f0f1d] text-white px-4 pt-10 font-inter">
+    <div class="flex flex-col md:flex-row items-start gap-10 max-w-6xl w-full">
+        <div class="p-10 rounded-xl w-full md:w-1/2 shadow-lg">
+            <h2 class="text-3xl font-bold mb-3 text-white">Welcome Back</h2>
+            <p class="text-base mb-6 text-gray-300 leading-relaxed">
+                Build skills for today, tomorrow, and beyond.
+                <span class="italic text-cyan-400 text-[#47A5C5]">
+                    Education <br />to future-proof your career.
+                </span>
+            </p>
+            <div class="flex bg-richblack-800 p-1 gap-x-1 my-6 rounded-full max-w-max"
+                style="box-shadow: rgba(255, 255, 255, 0.18) 0px -1px 0px inset">
+                <button type="button" class="py-2 px-5 rounded-full transition-all duration-200" [ngClass]="{
+            'bg-richblack-900 text-richblack-5': selectedRole === 'Student',
+            'bg-transparent text-richblack-200': selectedRole !== 'Student'
+          }" (click)="selectRole('Student')">
+                    Student
+                </button>
+                <button type="button" class="py-2 px-5 rounded-full transition-all duration-200" [ngClass]="{
+            'bg-richblack-900 text-richblack-5': selectedRole === 'Instructor',
+            'bg-transparent text-richblack-200': selectedRole !== 'Instructor'
+          }" (click)="selectRole('Instructor')">
+                    Instructor
+                </button>
+            </div>
+
+            <form [formGroup]="loginForm" class="space-y-4" (ngSubmit)="onSubmitClick()">
+                <div>
+                    <label for="email" class="text-sm block mb-1 font-medium text-gray-300">
+                        Email Address <span class="text-[#ef476f]">*</span>
+                    </label>
+                    <input id="email" type="email" formControlName="email"
+                        class="w-full h-12 px-4 rounded-lg bg-[#161D29] text-white focus:outline-none"
+                        placeholder="Enter email address" />
+                    @if (loginForm.get('email')?.touched &&
+                    loginForm.get('email')?.invalid) {
+                    <div class="text-red-500 text-xs mt-1">Enter a valid email</div>
+                    }
+                </div>
+
+                <div>
+                    <label for="password" class="text-sm block mb-1 font-medium text-gray-300">
+                        Password <span class="text-[#ef476f]">*</span>
+                    </label>
+                    <div class="relative">
+                        <input id="password" [type]="passwordVisible ? 'text' : 'password'" formControlName="password"
+                            class="w-full h-12 px-4 rounded-lg bg-[#161D29] text-white focus:outline-none"
+                            placeholder="Enter Password" />
+                        <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg"
+                            (click)="passwordVisible = !passwordVisible"
+                            [attr.aria-label]="passwordVisible ? 'Hide password' : 'Show password'">
+                            @if (passwordVisible) {
+                            <i class="fa-solid fa-eye-slash"></i>
+                            } @else {
+                            <i class="fa-solid fa-eye"></i>
+                            }
+                        </button>
+                    </div>
+                    @if (loginForm.get('password')?.touched &&
+                    loginForm.get('password')?.invalid) {
+                    <div class="text-red-500 text-xs mt-1">
+                        Password must be at least 6 characters
+                    </div>
+                    }
+
+                    <div class="text-right text-xs text-[#47A5C5] mt-1 cursor-pointer">
+                        <a [routerLink]="['/auth/forgot-password']">Forgot password</a>
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-[#FFD60A] text-black py-3 rounded-lg font-semibold text-base transition-colors duration-200 hover:bg-yellow-300">
+                    Sign in
+                </button>
+            </form>
+        </div>
+
+        <div class="w-full md:w-1/2 flex items-center justify-center">
+            <div class="relative h-[450px] w-[518px]">
+                <div class="overflow-hidden mt-7 shadow-md">
+                    <img src="../../../../public/Images/frame.png" alt="Frame Background"
+                        class="w-full h-[423px] object-cover ml-[22px]" />
+                </div>
+                <div class="absolute top-0 left-0 h-[calc(450px-20px)] w-[calc(518px-20px)]">
+                    <img src="../../../../public/Images/login.webp" alt="Login" class="h-full w-full object-fill" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
